@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes_Scripts/Monster.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes_Scripts/Minion.gd" type="Script" id=2]
+[ext_resource path="res://Art/Minion_maybe_potion.png" type="Texture" id=3]
+[ext_resource path="res://Music_Sounds/MinionEncounter.wav" type="AudioStream" id=4]
+[ext_resource path="res://Music_Sounds/MinionHit.wav" type="AudioStream" id=5]
+[ext_resource path="res://Music_Sounds/MinionDeath.wav" type="AudioStream" id=6]
+
+[node name="Minion" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+encounter_type = "Monster"
+encounter_message = "You've encountered a minion!"
+mob_name = "Minion"
+health = 15
+attack_stat = 7
+strength_stat = 7
+defence_stat = 7
+chance_of_escape = 15.0
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="EncounterNoise" parent="." index="1"]
+stream = ExtResource( 4 )
+
+[node name="HitNoise" parent="." index="3"]
+stream = ExtResource( 5 )
+volume_db = -20.0
+
+[node name="DeathNoise" parent="." index="4"]
+stream = ExtResource( 6 )
+volume_db = -5.864
