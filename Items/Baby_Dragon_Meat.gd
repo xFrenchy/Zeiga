@@ -16,3 +16,5 @@ func init():
 func use():
 	if Globals.player_health <= 100:
 		Globals.player_health += heal_value
+		return true
+	return false
