@@ -17,6 +17,8 @@ font_data = ExtResource( 4 )
 
 [node name="TravelingMerchant" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+encounter_type = "Shop"
+encounter_message = "Might have some good items in the store"
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )
@@ -80,6 +82,7 @@ margin_top = -172.0
 margin_right = 522.0
 margin_bottom = -145.0
 custom_fonts/font = SubResource( 1 )
+align = 2
 __meta__ = {
 "_edit_lock_": true
 }

@@ -9,6 +9,12 @@ var shopItems = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$HealthNumberLabel.text = str(Globals.player_health)
+	$HealthNumberLabel.show()
+	$GoldNumberLabel.text = str(Globals.gold)
+	$GoldNumberLabel.show()
+	$RoomNumberLabel.text = str(Globals.room_number)
+	$RoomNumberLabel.show()
 	$InventoryHUD.hide()
 	$ShopBackground.hide()
 	$Up.hide()
