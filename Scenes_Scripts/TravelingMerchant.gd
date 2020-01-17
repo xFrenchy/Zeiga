@@ -131,7 +131,7 @@ func _on_Down_pressed():
 func _on_Buy_pressed():
 	var items = shopItems.keys()
 	var cost = shopItems.values()
-	if cost[index-1] < Globals.gold:
+	if cost[index-1] <= Globals.gold:
 		Globals.gold -= cost[index-1]	# removed the gold that the item costs, now add it to the inventory
 		Globals.player_inventory.append(items[index-1])	# add item to the inventory
 	$GoldNumberLabel.text = str(Globals.gold)

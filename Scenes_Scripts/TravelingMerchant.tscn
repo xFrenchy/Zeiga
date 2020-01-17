@@ -15,7 +15,7 @@ font_data = ExtResource( 4 )
 size = 21
 font_data = ExtResource( 4 )
 
-[node name="TravelingMerchant" index="0" instance=ExtResource( 1 )]
+[node name="TravelingMerchant" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 encounter_type = "Shop"
 encounter_message = "Might have some good items in the store"
