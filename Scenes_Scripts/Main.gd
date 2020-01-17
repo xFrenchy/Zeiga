@@ -1,6 +1,6 @@
 extends Node2D
 
-var rooms_array = ["res://Scenes_Scripts/BabyDragon.tscn", "res://Scenes_Scripts/Minion.tscn", "res://Scenes_Scripts/TreasureRoom.tscn"]
+var rooms_array = ["res://Scenes_Scripts/BabyDragon.tscn", "res://Scenes_Scripts/Minion.tscn", "res://Scenes_Scripts/TreasureRoom.tscn", "res://Scenes_Scripts/TravelingMerchant.tscn"]
 var room
 var room_node
 
@@ -43,6 +43,10 @@ func _on_DefaultHUD_next_room():
 	elif room_node.encounter_type == "Reward":
 		room_node.roll_reward()
 		$DefaultHUD.show()	# this updates our gold label for the HUD
+	elif room_node.encounter_type == "Shop":	# This is our traveling merchant room
+		#Hide our current hude
+		$DefaultHUD.hide()
+		room_node.connect("leave", self, "leave_merchant_room")
 
 
 func _on_EncounterMobHUD_fight():
@@ -105,3 +109,9 @@ func _on_DefaultHUD_inventory():
 func _on_InventoryHUD_back():
 	$InventoryHUD.hide()
 	$DefaultHUD.show()
+
+
+func leave_merchant_room():
+	room_node.queue_free()	# remove the merchant node from our main scene
+	$DefaultHUD.show()
+
