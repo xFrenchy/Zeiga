@@ -1,4 +1,4 @@
-extends Position2D
+extends "res://Scenes_Scripts/Room.gd"
 
 signal leave
 var index : int = 1
