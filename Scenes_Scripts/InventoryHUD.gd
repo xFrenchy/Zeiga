@@ -102,8 +102,11 @@ func _on_Left_pressed():
 
 func _on_Use_pressed():
 	if current_index <= Globals.player_inventory.size():
-		Globals.player_inventory[current_index - 1].use()
-		Globals.player_inventory.remove(current_index - 1)
-		# update inventory and health
-		update()
-		show()
+		var result = Globals.player_inventory[current_index - 1].use()
+		if result == true:
+			Globals.player_inventory.remove(current_index - 1)
+			# update inventory and health
+			update()
+			show()
+		else:
+			print("Cannot use this item!")	# later on print this message in a label instead
