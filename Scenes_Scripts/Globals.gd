@@ -19,6 +19,7 @@ var is_fight_ongoing = false
 var hitting_sound_wav = preload("res://Music_Sounds/PlayerHit.wav")
 var taking_hit_sound_wav = preload("res://Music_Sounds/PlayerIsHit.wav")
 var fightingHUD_scene = preload("res://Scenes_Scripts/FightingHUD.tscn")
+var fightHUD_scene = preload("res://Scenes_Scripts/FightHUD.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -26,6 +27,20 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+func fight1(monster):
+	is_fight_ongoing = true
+	var hit_sound = AudioStreamPlayer2D.new()
+	var taking_hit_sound = AudioStreamPlayer2D.new()
+	var hud = fightHUD_scene.instance()
+	hit_sound.set_stream(hitting_sound_wav)
+	hit_sound.volume_db = -7
+	taking_hit_sound.set_stream(taking_hit_sound_wav)
+	taking_hit_sound.volume_db = -10
+	# remember to remove this when exiting to avoid memory leak
+	get_tree().get_root().add_child(hud)	
+	get_tree().get_root().add_child(hit_sound)
+	get_tree().get_root().add_child(taking_hit_sound)
+	hud.spawn_enemy(monster)
 
 
 # keep fighting until the monster or player dies
