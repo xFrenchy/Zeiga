@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes_Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes_Scripts/DefaultHUD.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Music_Sounds/PlayerIsHit.wav" type="AudioStream" id=5]
 [ext_resource path="res://Scenes_Scripts/InventoryHUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes_Scripts/FightingHUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes_Scripts/FightHUD.tscn" type="PackedScene" id=8]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -28,6 +29,8 @@ volume_db = -13.196
 [node name="InventoryHUD" parent="." instance=ExtResource( 6 )]
 
 [node name="FightingHUD" parent="." instance=ExtResource( 7 )]
+
+[node name="FightHUD" parent="." instance=ExtResource( 8 )]
 [connection signal="game_over" from="DefaultHUD" to="." method="_on_DefaultHUD_game_over"]
 [connection signal="inventory" from="DefaultHUD" to="." method="_on_DefaultHUD_inventory"]
 [connection signal="next_room" from="DefaultHUD" to="." method="_on_DefaultHUD_next_room"]

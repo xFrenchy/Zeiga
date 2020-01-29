@@ -10,6 +10,7 @@ func _ready():
 	$EncounterMobHUD.hide()
 	$InventoryHUD.hide()
 	$FightingHUD.hide()
+	$FightHUD.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -37,8 +38,10 @@ func _on_DefaultHUD_next_room():
 	if room_node.encounter_type == "Monster":
 		# Show EncounterHUD
 		$DefaultHUD.hide()
-		$EncounterMobHUD/RoomInformationLabel.text = room_node.encounter_message
-		$EncounterMobHUD.show()
+		Globals.currentMonster = room_node
+		$FightHUD.show()
+		$FightHUD.display_msg_timer(room_node.encounter_message, 2)
+		yield($FightHUD, "fight_over")	# we wait until the fight is over
 		# At this point the user can only emit two signals, fight and run which are taken care with handler functions listening
 	elif room_node.encounter_type == "Reward":
 		room_node.roll_reward()
@@ -51,7 +54,11 @@ func _on_DefaultHUD_next_room():
 
 func _on_EncounterMobHUD_fight():
 	$EncounterMobHUD.hide()
-	Globals.fight(room_node)
+	Globals.currentMonster = room_node
+	$FightHUD.show()
+	
+	#Globals.fight1(room_node)
+	#Globals.fight(room_node)
 	yield(Globals, "fight_over")	# wait for the fight to be over before we proceed
 	if  Globals.player_health > 0:
 		# Fight was successfull and we restore defaultHUD, and remove the monster from the screen
