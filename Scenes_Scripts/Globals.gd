@@ -15,6 +15,7 @@ var gold = 0
 var room_number = 0
 var player_inventory : Array = []
 var is_fight_ongoing = false
+var currentMonster
 
 var hitting_sound_wav = preload("res://Music_Sounds/PlayerHit.wav")
 var taking_hit_sound_wav = preload("res://Music_Sounds/PlayerIsHit.wav")
@@ -41,6 +42,12 @@ func fight1(monster):
 	get_tree().get_root().add_child(hit_sound)
 	get_tree().get_root().add_child(taking_hit_sound)
 	hud.spawn_enemy(monster)
+	# At this point the user has three choices, each choice takes a turn
+	# Signal for hit, user hits the monster, monster hits back
+	
+	# Signal for inventory, user opens inventory, if something is consumed, monster hits and user skips
+	
+	# Signal for run, user attempts to run, if failed, monster hits, user skips
 
 
 # keep fighting until the monster or player dies
