@@ -108,5 +108,7 @@ func _on_Use_pressed():
 			# update inventory and health
 			update()
 			show()
+			if Globals.is_fight_ongoing == true:
+				emit_signal("back")
 		else:
 			print("Cannot use this item!")	# later on print this message in a label instead
