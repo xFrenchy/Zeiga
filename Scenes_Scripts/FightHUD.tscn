@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes_Scripts/FightHUD.gd" type="Script" id=1]
 [ext_resource path="res://KarmaFuture.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes_Scripts/InventoryHUD.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 21
@@ -72,6 +73,8 @@ margin_top = 343.0
 margin_right = 741.0
 margin_bottom = 394.0
 custom_fonts/font = SubResource( 2 )
+
+[node name="InventoryHUD" parent="." instance=ExtResource( 3 )]
 [connection signal="pressed" from="HitButton" to="." method="_on_HitButton_pressed"]
 [connection signal="pressed" from="InventoryButton" to="." method="_on_InventoryButton_pressed"]
 [connection signal="pressed" from="RunButton" to="." method="_on_RunButton_pressed"]
