@@ -42,6 +42,10 @@ func fight1(monster):
 	get_tree().get_root().add_child(hit_sound)
 	get_tree().get_root().add_child(taking_hit_sound)
 	hud.spawn_enemy(monster)
+	print("Fight is starting")
+	yield($FightHUD, "fight_over")	# wait for the fight to be over before we proceed
+	print("Sending signal to global that fight ended")
+	emit_signal("fight_over")
 	# At this point the user has three choices, each choice takes a turn
 	# Signal for hit, user hits the monster, monster hits back
 	
@@ -107,14 +111,6 @@ func fight(monster) -> bool:
 			return true
 	emit_signal("fight_over")
 	return true
-
-
-func attempt_to_run(chance):
-	if randi() % 100 < chance:
-		# succeful running away attempt
-		return true
-	else:
-		return false
 
 
 # function for rolling an attack for the player
