@@ -106,7 +106,7 @@ func _on_InventoryButton_pressed():
 	if Globals.player_inventory.size() < size_of_inventory:
 		# inventory was used, enemy attacks
 		$HealthLabel.show()
-		$HealthNumberLabel.text = Globals.player_health
+		$HealthNumberLabel.text = str(Globals.player_health)
 		$HealthNumberLabel.show()
 		var damage_monster = Globals.currentMonster.attack()
 		yield(get_tree().create_timer(1.5), "timeout")
