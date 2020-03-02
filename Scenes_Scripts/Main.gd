@@ -1,6 +1,7 @@
 extends Node2D
 
-var rooms_array = ["res://Scenes_Scripts/BabyDragon.tscn", "res://Scenes_Scripts/Minion.tscn", "res://Scenes_Scripts/TreasureRoom.tscn", "res://Scenes_Scripts/TravelingMerchant.tscn"]
+var rooms_array = ["res://Scenes_Scripts/BabyDragon.tscn", "res://Scenes_Scripts/Minion.tscn", "res://Scenes_Scripts/TreasureRoom.tscn", "res://Scenes_Scripts/TravelingMerchant.tscn", "res://Scenes_Scripts/DangerNoodle.tscn"]
+var special_room_array = []
 var room
 var room_node
 
