@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes_Scripts/Monster.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes_Scripts/DangerNoodle.gd" type="Script" id=2]
+[ext_resource path="res://Art/danger_noodle.png" type="Texture" id=3]
+
+[node name="DangerNoodle" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+encounter_type = "Monster"
+encounter_message = "You've encountered a Danger Noodle!"
+mob_name = "Danger Noodle"
+health = 10
+attack_stat = 30
+strength_stat = 5
+defence_stat = 1
+chance_of_escape = 20.0
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
